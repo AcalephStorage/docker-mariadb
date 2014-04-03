@@ -21,6 +21,12 @@ RUN chmod 664 /etc/mysql/conf.d/my.cnf
 ADD run /usr/local/bin/run
 RUN chmod +x /usr/local/bin/run
 
+# Disable binlog
+RUN sed -i -e 's/^log_bin/#log_bin/' /etc/mysql/my.cnf
+RUN sed -i -e 's/^log_bin_index/#log_bin_index/' /etc/mysql/my.cnf
+RUN sed -i -e 's/^expire_logs_days/#expire_logs_days/' /etc/mysql/my.cnf
+RUN sed -i -e 's/^max_binlog_size/#max_binlog_size/' /etc/mysql/my.cnf
+
 VOLUME ["/var/lib/mysql"]
 EXPOSE 3306
 CMD ["/usr/local/bin/run"]
