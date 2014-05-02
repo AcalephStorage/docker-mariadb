@@ -2,13 +2,13 @@ FROM stackbrew/ubuntu:12.04
 MAINTAINER Gordon Chiam <gordon.chiam@gmail.com>
 
 # Common
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+RUN echo 'deb http://archive.ubuntu.com/ubuntu precise main universe' > /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get upgrade -y
 
 # install python-software-properties to get add-apt-repository
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get install -y --force-yes python-software-properties
+RUN apt-get install -y --force-yes software-properties-common
 
 # install mariadb
 RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
