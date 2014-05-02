@@ -8,7 +8,7 @@ RUN apt-get upgrade -y
 
 # install python-software-properties to get add-apt-repository
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get install -y software-properties-common
+RUN apt-get install -y python-software-properties
 
 # install mariadb
 RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
