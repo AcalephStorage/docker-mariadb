@@ -1,8 +1,8 @@
-FROM stackbrew/ubuntu:12.04
-MAINTAINER Gordon Chiam <gordon.chiam@gmail.com>
+FROM ubuntu:14.04
+MAINTAINER Acaleph 'admin@acale.ph"
 
 
-RUN echo 'deb http://us.archive.ubuntu.com/ubuntu/ precise universe' >> /etc/apt/sources.list
+RUN echo 'deb http://us.archive.ubuntu.com/ubuntu/ trusty universe' >> /etc/apt/sources.list
 RUN apt-get -y update
 RUN apt-get upgrade -y
 
@@ -12,7 +12,7 @@ RUN apt-get install -y python-software-properties
 
 # install mariadb
 RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
-RUN add-apt-repository 'deb http://download.nus.edu.sg/mirror/mariadb/repo/5.5/ubuntu precise main'
+RUN add-apt-repository 'deb http://download.nus.edu.sg/mirror/mariadb/repo/5.5/ubuntu trusty main'
 RUN apt-get update -qq
 RUN apt-get install -y --force-yes mariadb-server
 
