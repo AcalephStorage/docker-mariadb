@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Acaleph 'admin@acale.ph"
+MAINTAINER Acaleph 'admin@acale.ph'
 
 
 RUN echo 'deb http://us.archive.ubuntu.com/ubuntu/ trusty universe' >> /etc/apt/sources.list
