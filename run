@@ -48,6 +48,11 @@ else
     echo "=> Using an existing volume of MySQL"
 fi
 
+if [[ $REMOVE_ARIA_LOG_CONTROL == "TRUE" ]]; then
+  echo "=> Removing aria_log_control"
+  rm -f /var/lib/mysql/aria_log_control
+fi
+
 
 echo "==> Starting MariaDB"
 exec /usr/sbin/mysqld $MYSQLD_ARGS
