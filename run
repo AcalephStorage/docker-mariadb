@@ -23,12 +23,12 @@ if [[ ! -d /var/lib/mysql/mysql ]]; then
   fi
 
   echo "=> Creating SQL to set root user"
-  cat << EOF > $tfile
-  USE mysql;
-  FLUSH PRIVILEGES;
-  GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
-  UPDATE user SET password=PASSWORD("$MYSQL_ROOT_PASSWORD") WHERE user='root';
-  EOF
+cat << EOF > $tfile
+USE mysql;
+FLUSH PRIVILEGES;
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+UPDATE user SET password=PASSWORD("$MYSQL_ROOT_PASSWORD") WHERE user='root';
+EOF
 
   if [[ $MYSQL_DATABASE != "" ]]; then
       echo "=> Adding SQL to create DB"
